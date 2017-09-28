@@ -1,0 +1,29 @@
+/*insectes*/
+S1=[g,d] {
+	  etat=2;
+	  init=0;
+	  0=g;
+	  1=d;
+	  0->1 [gd];
+	  1->0 [dg];
+};;
+
+systeme = <S1 f,S1 l,S1 m,S1 s> {
+	<gd,gd,_,_> -> lombric;
+	<gd,_,gd,_> -> millepattes;
+	<gd,_,gd,gd> -> millepattesSauterelle;
+	<gd,_,_,gd> -> sauterelle;
+	<dg,dg,_,_> -> millepattes;
+	<dg,_,dg,_> -> millepattes;
+	<dg,_,dg,dg> -> millepattesSauterelle;
+	<dg,_,_,dg> -> sauterelle;
+};;
+
+todot S1.dot S1;;
+todot insectes.dot systeme;;
+
+
+
+chemin = systeme -> f.d && l.d && s.d && m.d;;
+todot solution.dot chemin;;
+

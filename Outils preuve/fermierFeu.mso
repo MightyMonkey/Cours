@@ -1,0 +1,62 @@
+/*Fermier, loup, salade, la chevre, le baton, le feu */
+S1=[g,d] {
+	  etat=2;
+	  init=0;
+	  0=g;
+	  1=d;
+	  0->1 [gd];
+	  1->0 [dg];
+};;
+
+systeme = <S1 f,S1 l,S1 c,S1 s,S1 b,S1 fe> {
+	<gd,_,_,_,_,_> -> fermier;
+	<gd,gd,_,_,_,_> -> loup;
+	<gd,gd,gd,_,_,_> -> loupChevre;
+	<gd,gd,_,gd,_,_> -> loupSalade;
+	<gd,gd,_,_,gd,_> -> loupBaton;
+	<gd,gd,_,_,_,gd> -> loupFeu;
+	<gd,_,gd,_,_,_> -> chevre;
+	<gd,_,gd,gd,_,_> -> chevreSalade;
+	<gd,_,gd,_,gd,_> -> chevreBaton;
+	<gd,_,gd,_,_,gd> -> chevreFeu;
+	<gd,_,_,gd,_,_> -> salade;
+	<gd,_,_,gd,gd,_> -> saladeBaton;
+	<gd,_,_,gd,_,gd> -> saladeFeu;
+	<gd,_,_,_,gd,_> -> baton;
+	<gd,_,_,_,gd,gd> -> batonFeu;
+	<gd,_,_,_,_,gd> -> feu;
+	<dg,_,_,_,_,_> -> fermier;
+	<dg,dg,_,_,_,_> -> loup;
+	<dg,dg,dg,_,_,_> -> loupChevre;
+	<dg,dg,_,dg,_,_> -> loupSalade;
+	<dg,dg,_,_,dg,_> -> loupBaton;
+	<dg,dg,_,_,_,dg> -> loupFeu;
+	<dg,_,dg,_,_,_> -> chevre;
+	<dg,_,dg,dg,_,_> -> chevreSalade;
+	<dg,_,dg,_,dg,_> -> chevreBaton;
+	<dg,_,dg,_,_,dg> -> chevreFeu;
+	<dg,_,_,dg,_,_> -> salade;
+	<dg,_,_,dg,dg,_> -> saladeBaton;
+	<dg,_,_,dg,_,dg> -> saladeFeu;
+	<dg,_,_,_,dg,_> -> baton;
+	<dg,_,_,_,dg,dg> -> batonFeu;
+	<dg,_,_,_,_,dg> -> feu;
+};;
+
+
+todot S1.dot S1;;
+todot fermier.dot systeme;;
+
+
+reduit = systeme | !(c.g && (l.g || s.g) && f.d  || b.g && (l.g || fe.g) && f.d
+|| c.d && (l.d || s.d) && f.g  || b.d && (l.d || fe.d) && f.g
+);;
+
+todot reduit.dot reduit;;
+
+chemin = reduit -> f.d && l.d && c.d && s.d && b.d && fe.d;;
+todot solution.dot chemin;;
+
+
+
+

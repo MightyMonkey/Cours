@@ -1,0 +1,47 @@
+/* traversée du pont en17min */
+S1=[g,d] {
+	  etat=2;
+	  init=0;
+	  0=g;
+	  1=d;
+	  0->1 [gd];
+	  1->0 [dg];
+};;
+
+S2=[@] {
+	etat=50;
+	init=0;
+	17=f;
+	
+};;
+
+systeme = <S1 l,S1 a,S1 b,S1 c,S1 d,S2 compt> {
+	<gd,gd,_,_,_> -> min1;
+	<gd,gd,gd,_,_> -> min2;
+	<gd,gd,_,gd,_> -> min5;
+	<gd,gd,_,_,gd> -> min10;
+	<gd,_,gd,_,_> -> min2;
+	<gd,_,gd,gd,_> -> min5;
+	<gd,_,gd,_,gd> -> min10;
+	<gd,_,_,gd,_> -> min5;
+	<gd,_,_,gd,gd> -> min10;
+	<gd,_,_,_,gd> -> min10;
+	<dg,dg,_,_,_> -> min1;
+	<dg,dg,dg,_,_> -> min2;
+	<dg,dg,_,dg,_> -> min5;
+	<dg,dg,_,_,dg> -> min10;
+	<dg,_,dg,_,_> -> min2;
+	<dg,_,dg,dg,_> -> min5;
+	<dg,_,dg,_,dg> -> min10;
+	<dg,_,_,dg,_> -> min5;
+	<dg,_,_,dg,dg> -> min10;
+	<dg,_,_,_,dg> -> min10;
+};;
+
+todot S1.dot S1;;
+todot pont.dot systeme;;
+
+
+
+chemin = systeme -> l.d && a.d && b.d && c.d && d.d && compt.f;;
+todot solution.dot chemin;;

@@ -1,0 +1,45 @@
+S1=[g,d] {
+	  etat=2;
+	  init=0;
+	  0=g;
+	  1=d;
+	  0->1 [gd];
+	  1->0 [dg];
+};;
+
+S2=[g,e,d] {
+	etat=3;
+	init=0;
+	0=g;
+	1=e;
+	2=d;
+	0->1 [ge];
+	1->0 [eg];
+	1->2 [ed];
+	2->1 [de];
+};;
+
+systeme = <S1 f,S1 c,S2 s> {
+	<gd,_,_> -> fermier;
+	<gd,gd,_> -> chevre;
+	<gd,_,ge> -> salade;
+	<gd,_,ed> -> salade;
+	<dg,_,_> -> fermier;
+	<dg,dg,_> -> chevre;
+	<dg,_,de> -> salade;
+	<dg,_,eg> -> salade;
+};;
+
+
+todot S1.dot S1;;
+todot fermier.dot systeme;;
+
+
+reduit = systeme | !(c.g && (s.g || s.e) && f.d
+|| c.d && (s.d || s.e) && f.g
+);;
+
+todot reduit.dot reduit;;
+
+chemin = reduit -> f.d && c.d && s.d;;
+todot solution.dot chemin;;
