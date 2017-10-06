@@ -1,0 +1,47 @@
+proc=[i,w,sc,fin] {
+      etat = 4;
+      init = 0;
+      0=i;
+      1=w;
+      2=sc;
+      3=fin;
+      0->1 [qrv];
+      1->2 [wait];
+      2->0 [qrf];
+      0->3 [fin];
+};;
+
+Q=[] {
+      etat = 2;
+      init = 0;
+      0->0 [rf,ef];
+      0->1 [rv];
+      1->1 [rv];
+      1->0 [rf];
+};;
+
+synchro = <proc p1, proc p2, Q q1, Q q2> {
+       <qrv,_,rv,_> -> p1;
+       <wait,_,_,ef> ->p1;
+       <qrf,_,rf,_> -> p1;
+       <fin,_,_,_> -> p1;
+       <_,qrv,_,rv> -> p2;
+       <_,wait,ef,_> ->p2;
+       <_,qrf,_,rf> -> p2;
+       <_,fin,_,_> -> p2;
+  };;
+
+synchro += INIT <- init;;
+
+/*
+synchro += propsc <- AG(!(p1.sc && p2.sc));;
+reduit = synchro | INIT && !propsc;;
+*/
+
+
+synchro += propequite <- AG(p1.w -> AF(p1.sc));;
+reduit = synchro | INIT && !propequite;;
+
+
+synchro += bug <- p1.w && AX(false);;
+chemin = synchro -> bug;;
