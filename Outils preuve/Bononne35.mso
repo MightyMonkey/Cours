@@ -1,0 +1,125 @@
+B3=[c0,c1,c2,c3]{
+	etat = 4;
+	init = 0
+;	0 = c0;
+	1 = c1;
+	2 = c2;
+	3 = c3;
+
+	1 -> 0 [vider];
+	2 -> 0 [vider];
+	3 -> 0 [vider];
+
+	0 -> 3 [remplir];
+	1 -> 3 [remplir];
+	2 -> 3 [remplir];
+
+	1 -> 0 [vider1];
+	2 -> 0 [vider2];
+	3 -> 0 [vider3];
+
+	0 -> 3 [remplir3];
+	1 -> 3 [remplir2];
+	2 -> 3 [remplir1];
+
+	0 -> 1 [ajouter1];
+	0 -> 2 [ajouter2];
+	0 -> 3 [ajouter3];
+	1 -> 2 [ajouter1];
+	1 -> 3 [ajouter2];
+	2 -> 3 [ajouter1];
+
+	1 -> 0 [supprimer1];
+	2 -> 1 [supprimer1];
+	2 -> 0 [supprimer2];
+	3 -> 2 [supprimer1];
+	3 -> 1 [supprimer2];
+	3 -> 0 [supprimer3];
+};;
+
+B5=[c0,c1,c2,c3,c4,c5]{
+	etat = 6;
+	init = 0
+;	0 = c0;
+	1 = c1;
+	2 = c2;
+	3 = c3;
+	4 = c4;
+	5 = c5;
+
+	1 -> 0 [vider];
+	2 -> 0 [vider];
+	3 -> 0 [vider];
+	4 -> 0 [vider];
+	5 -> 0 [vider];
+
+	0 -> 5 [remplir];
+	1 -> 5 [remplir];
+	2 -> 5 [remplir];
+	3 -> 5 [remplir];
+	4 -> 5 [remplir];
+
+	1 -> 0 [vider1];
+	2 -> 0 [vider2];
+	3 -> 0 [vider3];
+	4 -> 0 [vider4];
+	5 -> 0 [vider5];
+
+	0 -> 5 [remplir5];
+	1 -> 5 [remplir4];
+	2 -> 5 [remplir3];
+	3 -> 5 [remplir2];
+	4 -> 5 [remplir1];
+
+	0 -> 1 [ajouter1];
+	0 -> 2 [ajouter2];
+	0 -> 3 [ajouter3];
+	0 -> 4 [ajouter4];
+	0 -> 5 [ajouter5];
+	1 -> 2 [ajouter1];
+	1 -> 3 [ajouter2];
+	1 -> 4 [ajouter3];
+	1 -> 5 [ajouter4];
+	2 -> 3 [ajouter1];
+	2 -> 4 [ajouter2];
+	2 -> 5 [ajouter3];
+	3 -> 4 [ajouter1];
+	3 -> 5 [ajouter2];
+	4 -> 5 [ajouter1];
+
+	1 -> 0 [supprimer1];
+	2 -> 1 [supprimer1];
+	2 -> 0 [supprimer2];
+	3 -> 2 [supprimer1];
+	3 -> 1 [supprimer2];
+	3 -> 0 [supprimer3];
+	4 -> 3 [supprimer1];
+	4 -> 2 [supprimer2];
+	4 -> 1 [supprimer3];
+	4 -> 0 [supprimer4];
+	5 -> 4 [supprimer1];
+	5 -> 3 [supprimer2];
+	5 -> 2 [supprimer3];
+	5 -> 1 [supprimer4];
+	5 -> 0 [supprimer5];
+};;
+
+systeme = < B3 b3 , B5 b5>{
+<vider,_>;
+<remplir,_>;
+<_,vider>;
+<_,remplir>;
+<vider1, ajouter1>;
+<ajouter1, vider1>;
+<remplir1, supprimer1>;
+<supprimer1, remplir1>;
+<vider2, ajouter2>;
+<ajouter2, vider2>;
+<remplir2, supprimer2>;
+<supprimer2, remplir2>;
+<vider3, ajouter3>;
+<ajouter3, vider3>;
+<remplir3, supprimer3>;
+<supprimer3, remplir3>;
+};;
+
