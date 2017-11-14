@@ -3,7 +3,8 @@ package compteur;
 public class compteur2  extends Thread{
     protected String nom;
     protected int max;
-   
+    protected static int position = 1;
+    
     public compteur2(String nom, int max)
     {
         this.nom = nom;
@@ -26,7 +27,8 @@ public class compteur2  extends Thread{
             }
             System.out.println(nom +" : "+i);
         }
-        System.out.println("max"+nom +"a fini de compter jusqu'à"+max);
+        System.out.println("max"+nom +"a fini de compter jusqu'à"+max+" en position "+position);
+        position++;
     }
    
 
