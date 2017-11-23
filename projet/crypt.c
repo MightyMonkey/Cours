@@ -4,7 +4,6 @@
 #include "crypt.h"
 #include "encrypt.h"
 #include <math.h>
-#include "des.c"
 
 /**
  *  * chiffrement utilisant le ou exclusif
@@ -157,7 +156,14 @@ void viginere_decrypt(char * key, char * texte, char* chiffre){
  *   */
 void des_crypt(char * key, char * texte, char* chiffre, int size)
 {
-	des_encipher(texte,chiffre,key);
+	char * ptrBlocTxt = texte;
+	char * ptrBlocChiffre = chiffre;
+	int i=0;
+	for(i=0;i<size;i++){
+		des_encipher((unsigned char*)ptrBlocTxt,(unsigned char*)ptrBlocChiffre,(unsigned char*)key);
+		ptrBlocTxt += sizeof(char)*8;
+		ptrBlocChiffre += sizeof(char)*8;
+	}
 }
 
 
@@ -166,7 +172,16 @@ void des_crypt(char * key, char * texte, char* chiffre, int size)
  *   */
 void des_decrypt(char * key, char * texte, char* chiffre, int size)
 {
-	des_decipher(texte,chiffre,key);
+	char * ptrBlocTxt = texte;
+	char * ptrBlocChiffre = chiffre;
+	int i=0;
+	for(i=0;i<size;i++){
+		des_decipher((unsigned char*)ptrBlocTxt,(unsigned char*)ptrBlocChiffre,(unsigned char*)key);
+		ptrBlocTxt += sizeof(char)*8;
+		ptrBlocChiffre += sizeof(char)*8;
+		
+	}
+
 }
 
 /**
@@ -174,7 +189,13 @@ void des_decrypt(char * key, char * texte, char* chiffre, int size)
  *   */
 void tripledes_crypt(char * key1, char * key2, char * texte, char* chiffre,int size)
 {
-
+	char * tmp_chiffre;
+	char * tmp_texte;
+	tmp_texte= (char*)calloc(strlen(texte),sizeof(char));
+	tmp_chiffre= (char*)calloc(strlen(texte),sizeof(char));
+	des_crypt(key1,texte,tmp_chiffre,size);
+	des_decrypt(key2,tmp_chiffre,tmp_texte,size);
+	des_crypt(key1,tmp_texte,chiffre,size);
 }
 
 
@@ -183,7 +204,13 @@ void tripledes_crypt(char * key1, char * key2, char * texte, char* chiffre,int s
  *   */
 void tripledes_decrypt(char* key1, char* key2, char* texte, char* chiffre, int size)
 {
-
+	char * tmp_chiffre;
+	char * tmp_texte;
+	tmp_texte= (char*)calloc(strlen(texte),sizeof(char));
+	tmp_chiffre= (char*)calloc(strlen(texte),sizeof(char));
+	des_decrypt(key1,texte,tmp_chiffre,size);
+	des_crypt(key2,tmp_chiffre,tmp_texte,size);
+	des_decrypt(key1,tmp_texte,chiffre,size);
 }
 
 
@@ -288,15 +315,15 @@ void rsa_crypt(int e, int n, char * texte, char* chiffre, int size)
 	*chiffre='\0';
 	while((*pt) != '\0'){
 		tmp=*pt-'0';
-		if(10*buf + tmp >= n){
+		if((10*buf + tmp) >= n){
 		    // on utilise le $ comme séparateur de bloc
-			//sprintf(chiffre+strlen(chiffre),"%ld$%c",/* TODO Chiffrement de buf */,'\0');
+			sprintf(chiffre+strlen(chiffre),"%ld$%c",modexp(buf,e,n),'\0');
 			buf=0;
 		}
 		buf=10*buf+tmp;
 		pt++;
 	}
-	//sprintf(chiffre+strlen(chiffre),"%ld$%c", /* TODO Chiffrement de Buf */,'\0');
+	sprintf(chiffre+strlen(chiffre),"%ld$%c", modexp(buf,e,n),'\0');
 	printf("\n");
 }
 
@@ -313,8 +340,8 @@ void rsa_decrypt(int d, int n, char * texte, char* chiffre)
 	*tmpc='\0';
 	while((*pt) != '\0'){
 		// on utilise le $ comme séparateur de bloc
-	    if((*pt) == '$'){
-			//sprintf(tmpc+strlen(tmpc),"%ld%c", /* Dechiffrement de buf */,'\0');
+	    	if((*pt) == '$'){
+			sprintf(tmpc+strlen(tmpc),"%ld%c",modexp(buf,d,n),'\0');
 			buf=0;
 		}else{
 			tmp=*pt-'0';
@@ -322,7 +349,7 @@ void rsa_decrypt(int d, int n, char * texte, char* chiffre)
 		}
 		pt++;
 	}
-	//sprintf(tmpc+strlen(tmpc),"%ld%c",/* Dechiffrement de buf*/,'\0');
+	sprintf(tmpc+strlen(tmpc),"%ld%c",modexp(buf,d,n),'\0');
 	
 	inttotext(tmpc,chiffre);
 }

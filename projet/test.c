@@ -36,6 +36,8 @@ int main(int argc, char *argv[]){
 	dechiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
 	printf("%s\n",chiffre );
 	printf("%s\n",dechiffre );
+
+
 	printf("----------------   XOR --------------\n");
 	xor_crypt("clef", texte,chiffre);
 	xor_decrypt("clef", chiffre, dechiffre);
@@ -87,6 +89,8 @@ int main(int argc, char *argv[]){
 	printf("'%s'\n",chiffre);
 	printf("'%s'\n",dechiffre);
 	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");
+
+	
 
 
 	fclose (pFile);  // ferme le flux et
