@@ -19,25 +19,25 @@ void cesar_crypt(int decallage, char* texte, char* chiffre);
 void cesar_decrypt(int decallage, char* chiffre, char* clair);
 
 /**
- *  * chiffrement utilisant viginere
+ *  * chiffrement utilisant vigenere
  *   */
-void viginere_crypt(char* key, char* texte, char* chiffre);
+void vigenere_crypt(char* key, char* texte, char* chiffre);
 
 /**
- *  * déchiffrement utilisant viginere
+ *  * déchiffrement utilisant vigenere
  *   */
-void viginere_decrypt(char* key, char* chiffre, char* clair);
+void vigenere_decrypt(char* key, char* chiffre, char* clair);
 
 /**
  *  * chiffrement utilisant des
  *   */
-void des_crypt(char* key, char* texte, char* chiffre, int size);
+void desECB_crypt(char* key, char* texte, char* chiffre, int size);
 
 
 /**
  *  * déchiffrement utilisant des
  *   */
-void des_decrypt(char* key, char* chiffre, char* clair, int size);
+void desECB_decrypt(char* key, char* chiffre, char* clair, int size);
 
 /**
  *  * chiffrement utilisant 3des

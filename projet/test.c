@@ -56,18 +56,27 @@ int main(int argc, char *argv[]){
 
 	chiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
 	dechiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
-	printf("----------------   VIGENRE --------------\n");
-	viginere_crypt("abc", texte,chiffre);
-	viginere_decrypt("abc", chiffre, dechiffre);
+	printf("----------------   VIGENERE --------------\n");
+	vigenere_crypt("abc", texte,chiffre);
+	vigenere_decrypt("abc", chiffre, dechiffre);
 	printf("'%s'\n",chiffre);
 	printf("'%s'\n",dechiffre);
 	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");
 
 	chiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
 	dechiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
-	printf("----------------   DES --------------\n");
-	des_crypt("chabada", texte,chiffre,size);
-	des_decrypt("chabada", chiffre, dechiffre, size);
+	printf("----------------   DES ECB --------------\n");
+	desECB_crypt("chabada", texte,chiffre,size);
+	desECB_decrypt("chabada", chiffre, dechiffre, size);
+	printf("'%s'\n",chiffre);
+	printf("'%s'\n",dechiffre);
+	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");
+
+	chiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
+	dechiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
+	printf("----------------   DES CBC --------------\n");
+	desCBC_crypt("chabada", texte,chiffre,size);
+	desCBC_decrypt("chabada", chiffre, dechiffre, size);
 	printf("'%s'\n",chiffre);
 	printf("'%s'\n",dechiffre);
 	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");

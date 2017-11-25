@@ -9,36 +9,32 @@
  *  * chiffrement utilisant le ou exclusif
  *   */
 void xor_crypt(char * key, char * texte, char* chiffre){
-	char *cp;
-	int i;
+	int i=0;
 	char c;
+	int taille = strlen(texte)*sizeof(char);
 
-	if((cp=key)){
-		for(i=0;i<strlen(texte);i++){
-			c=texte[i];
-			if(*cp=='\0') cp=key;
-			c ^= *(cp++);
-			chiffre[i]=c;
-		}
+	for(i=0;i<taille;i++){
+		c=texte[i];
+		c ^= key[i%taille];
+		chiffre[i]=c;
 	}
+	chiffre[i]='\0';
 }
 
 /**
  *  * déchiffrement utilisant le ou exclusif
  *   */
 void xor_decrypt(char * key, char * texte, char* chiffre){
-	char *cp;
-	int i;
+	int i=0;
 	char c;
+	int taille = strlen(texte)*sizeof(char);
 
-	if((cp=key)){
-		for(i=0;i<strlen(texte);i++){
-			c=texte[i];
-			if(*cp=='\0') cp=key;
-			c ^= *(cp++);
-			chiffre[i]=c;
-		}
+	for(i=0;i<taille;i++){
+		c=texte[i];
+		c ^= key[i%taille];
+		chiffre[i]=c;
 	}
+	chiffre[i]='\0';
 }
 
 /**
@@ -47,18 +43,21 @@ void xor_decrypt(char * key, char * texte, char* chiffre){
 void cesar_crypt(int decallage, char * texte, char* chiffre){
 	int i;
 	char c;
+	int taille = strlen(texte)*sizeof(char);
 
 	if(decallage!=0){
-		for(i=0;i<strlen(texte);i++){
+		for(i=0;i<taille;i++){
 			c=texte[i];
+			//on ajoute le nbr de valeurs possibles pour éviter d'avoir des négatif en cas de décalage vers la gauche
+			//car l'opérationn modulo ne permet pas de remonter vers un positif (-2 %26 = -2, alors qu'on veut 24)
 			if(c>='a' && c<='z'){
-				c=(c-'a'+decallage)%26 + 'a';
+				c=(c-'a'+decallage+26)%26 + 'a';
 			}
 			if(c>='A' && c<='Z'){
-				c=(c-'A'+decallage)%26 + 'A';
+				c=(c-'A'+decallage+26)%26 + 'A';
 			}
 			if(c>='0' && c<='9'){
-                c=(c-'0'+decallage)%10 + '0';
+                c=(c-'0'+decallage+10)%10 + '0';
             }
 			chiffre[i]=c;
 		}
@@ -74,18 +73,22 @@ void cesar_crypt(int decallage, char * texte, char* chiffre){
 void cesar_decrypt(int decallage, char * texte, char* chiffre){
         int i;
         char c;
+        int taille = strlen(texte)*sizeof(char);
 
         if(decallage!=0){
-            for(i=0;i<strlen(texte);i++){
+            for(i=0;i<taille;i++){
 			c=texte[i];
+			//on travaille sur les valeurs numériques de la table ascii.
+			//on ajoute le nombre de valeur possibles pour éviter d'avoir un négatif
+			// car l'opération modulo ne permet pas de remonter vers un positif
                 if(c>='a' && c<='z'){
-                    c=(c-'a'-decallage)%26 + 'a';
+                    c=(c-'a'-decallage+26)%26 + 'a';
                 }
                 if(c>='A' && c<='Z'){
-                    c=(c-'A'-decallage)%26 + 'A';
+                    c=(c-'A'-decallage+26)%26 + 'A';
                 }
                 if(c>='0' && c<='9'){
-                    c=(c-'0'-decallage)%10 + '0';
+                    c=(c-'0'-decallage+10)%10 + '0';
                 }
             chiffre[i]=c;
         	}
@@ -96,9 +99,9 @@ void cesar_decrypt(int decallage, char * texte, char* chiffre){
 }
 
 /**
- *  * chiffrement utilisant viginere
+ *  * chiffrement utilisant vigenere
  *   */
-void viginere_crypt(char * key, char * texte, char* chiffre){
+void vigenere_crypt(char * key, char * texte, char* chiffre){
 	char *cp;
 	int i;
 	char c;
@@ -107,7 +110,7 @@ void viginere_crypt(char * key, char * texte, char* chiffre){
 		for(i=0;i<strlen(texte);i++){
 			c=texte[i];
 					if(*cp=='\0') cp=key;
-					//c =(c+ *(cp++))%'a';
+					//ici pas de problème de modulo, car on se déplace toujours à droite
 					if(c>='a' && c<='z'){
 						c=(c-'a'+*(cp++)-'a')%26 + 'a';
 					}
@@ -124,9 +127,9 @@ void viginere_crypt(char * key, char * texte, char* chiffre){
 }
 
 /**
- *  * déchiffrement utilisant viginere
+ *  * déchiffrement utilisant vigenere
  *   */
-void viginere_decrypt(char * key, char * texte, char* chiffre){
+void vigenere_decrypt(char * key, char * texte, char* chiffre){
 	char *cp;
 	int i;
 	char c;
@@ -134,16 +137,16 @@ void viginere_decrypt(char * key, char * texte, char* chiffre){
 	if((cp=key)){
 		for(i=0;i<strlen(texte);i++){
 			c=texte[i];
+				//même problème de modulo que pour le code césar, on remet donc l'offset
 					if(*cp=='\0') cp=key;
-					//c =(c+ *(cp++))%'a';
 					if(c>='a' && c<='z'){
-						c=(c-'a'-*(cp++)+'a')%26 + 'a';
+						c=(c-'a'-*(cp++)+'a'+26)%26 + 'a';
 					}
 					if(c>='A' && c<='Z'){
-						c=(c-'A'-*(cp++)+'a')%26 + 'A';
+						c=(c-'A'-*(cp++)+'a'+26)%26 + 'A';
 					}
 					if(c>='0' && c<='9'){
-                        c=(c-'0'-*(cp++)+'a')%10 + '0';
+                        c=(c-'0'-*(cp++)+'a'+10)%10 + '0';
                     }
 			chiffre[i]=c;
 				
@@ -152,13 +155,14 @@ void viginere_decrypt(char * key, char * texte, char* chiffre){
 }
 
 /**
- *  * chiffrement utilisant des
+ *  * chiffrement utilisant des version ECB
  *   */
-void des_crypt(char * key, char * texte, char* chiffre, int size)
+void desECB_crypt(char * key, char * texte, char* chiffre, int size)
 {
 	char * ptrBlocTxt = texte;
 	char * ptrBlocChiffre = chiffre;
 	int i=0;
+	//on fait une boucle pour traiter chaque bloc l'un après l'autre
 	for(i=0;i<size;i++){
 		des_encipher((unsigned char*)ptrBlocTxt,(unsigned char*)ptrBlocChiffre,(unsigned char*)key);
 		ptrBlocTxt += sizeof(char)*8;
@@ -168,13 +172,14 @@ void des_crypt(char * key, char * texte, char* chiffre, int size)
 
 
 /**
- *  * déchiffrement utilisant des
+ *  * déchiffrement utilisant des version ECB
  *   */
-void des_decrypt(char * key, char * texte, char* chiffre, int size)
+void desECB_decrypt(char * key, char * texte, char* chiffre, int size)
 {
 	char * ptrBlocTxt = texte;
 	char * ptrBlocChiffre = chiffre;
 	int i=0;
+	//on fait une boucle pour décrypter chaque bloc
 	for(i=0;i<size;i++){
 		des_decipher((unsigned char*)ptrBlocTxt,(unsigned char*)ptrBlocChiffre,(unsigned char*)key);
 		ptrBlocTxt += sizeof(char)*8;
@@ -184,18 +189,81 @@ void des_decrypt(char * key, char * texte, char* chiffre, int size)
 
 }
 
+
+/**
+ *  * chiffrement utilisant des version CBC
+ *   */
+void desCBC_crypt(char * key, char * texte, char* chiffre, int size)
+{
+	char * ptrBlocTxt = texte;
+	char * ptrBlocChiffre = chiffre;
+	char * blocChainer;
+	char * blocTemp;
+	blocChainer = (char*)calloc(8,sizeof(char));
+	blocTemp = (char*)calloc(8,sizeof(char));
+
+	int i=0;
+	//on fait une boucle pour traiter chaque bloc l'un après l'autre
+	for(i=0;i<size;i++){
+		if (i!=0)
+		{
+			xor_crypt(ptrBlocTxt,blocChainer,blocTemp);
+		}
+		des_encipher((unsigned char*)blocTemp,(unsigned char*)ptrBlocChiffre,(unsigned char*)key);
+		strncpy(blocChainer,ptrBlocChiffre,8);
+		printf("%s\n",blocChainer );
+		ptrBlocTxt += sizeof(char)*8;
+		ptrBlocChiffre += sizeof(char)*8;
+	}
+}
+
+
+/**
+ *  * déchiffrement utilisant des version CBC
+ *   */
+void desCBC_decrypt(char * key, char * texte, char* chiffre, int size)
+{
+	char * ptrBlocTxt = texte;
+	char * ptrBlocChiffre = chiffre;
+	char * blocChainer;
+	char * blocTemp;
+	blocChainer = (char*)calloc(8,sizeof(char));
+	blocTemp = (char*)calloc(8,sizeof(char));
+	int i=0;
+	//on fait une boucle pour décrypter chaque bloc
+	for(i=0;i<size;i++){
+		strncpy(blocChainer,ptrBlocTxt,8);
+		printf("%s\n",blocChainer );
+		des_decipher((unsigned char*)ptrBlocTxt,(unsigned char*)blocTemp,(unsigned char*)key);
+		if (i!=0)
+		{
+			xor_decrypt(blocChainer,blocTemp,ptrBlocChiffre);
+		}
+		ptrBlocTxt += sizeof(char)*8;
+		ptrBlocChiffre += sizeof(char)*8;
+	}
+
+}
+
 /**
  *  * chiffrement utilisant 3des
  *   */
 void tripledes_crypt(char * key1, char * key2, char * texte, char* chiffre,int size)
 {
+	char * ptrBlocTxt = texte;
+	char * ptrBlocChiffre = chiffre;
 	char * tmp_chiffre;
 	char * tmp_texte;
+	int i = 0;
 	tmp_texte= (char*)calloc(strlen(texte),sizeof(char));
 	tmp_chiffre= (char*)calloc(strlen(texte),sizeof(char));
-	des_crypt(key1,texte,tmp_chiffre,size);
-	des_decrypt(key2,tmp_chiffre,tmp_texte,size);
-	des_crypt(key1,tmp_texte,chiffre,size);
+	for(i=0;i<size;i++){
+		des_encipher((unsigned char*)ptrBlocTxt,(unsigned char*)tmp_chiffre,(unsigned char*)key1);
+		des_decipher((unsigned char*)tmp_chiffre,(unsigned char*)tmp_texte,(unsigned char*)key2);
+		des_encipher((unsigned char*)tmp_texte,(unsigned char*)ptrBlocChiffre,(unsigned char*)key1);
+		ptrBlocTxt += sizeof(char)*8;
+		ptrBlocChiffre += sizeof(char)*8;
+	}
 }
 
 
@@ -204,13 +272,20 @@ void tripledes_crypt(char * key1, char * key2, char * texte, char* chiffre,int s
  *   */
 void tripledes_decrypt(char* key1, char* key2, char* texte, char* chiffre, int size)
 {
+	char * ptrBlocTxt = texte;
+	char * ptrBlocChiffre = chiffre;
 	char * tmp_chiffre;
 	char * tmp_texte;
+	int i = 0;
 	tmp_texte= (char*)calloc(strlen(texte),sizeof(char));
 	tmp_chiffre= (char*)calloc(strlen(texte),sizeof(char));
-	des_decrypt(key1,texte,tmp_chiffre,size);
-	des_crypt(key2,tmp_chiffre,tmp_texte,size);
-	des_decrypt(key1,tmp_texte,chiffre,size);
+	for(i=0;i<size;i++){
+		des_decipher((unsigned char*)ptrBlocTxt,(unsigned char*)tmp_chiffre,(unsigned char*)key1);
+		des_encipher((unsigned char*)tmp_chiffre,(unsigned char*)tmp_texte,(unsigned char*)key2);
+		des_decipher((unsigned char*)tmp_texte,(unsigned char*)ptrBlocChiffre,(unsigned char*)key1);
+		ptrBlocTxt += sizeof(char)*8;
+		ptrBlocChiffre += sizeof(char)*8;
+	}
 }
 
 

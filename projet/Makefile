@@ -19,7 +19,7 @@ clean:
 	$(RM) -f core *.o $(CIBLES) *~
 
 
-test: test.o crypt.o des.o bit.o 
+test: test.o crypt.o des.o bit.o
 	$(CC) $(CFLAGS) -o $@ test.o des.o crypt.o bit.o  $(LIBS)
 
 test.o: test.c
