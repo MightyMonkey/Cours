@@ -1,0 +1,8 @@
+package sgbd;
+
+public class Bloom {
+
+	public static void main(String[] args)throws Exception{
+		
+	}
+}
