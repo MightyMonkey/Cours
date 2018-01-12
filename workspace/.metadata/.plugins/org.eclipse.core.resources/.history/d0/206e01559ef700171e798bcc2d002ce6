@@ -1,0 +1,32 @@
+package sgbd.impl;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Parser {
+
+}
+
+public static void parse()
+{
+	System.out.println("\n donnez la commande select from  à effectuer");
+	Scanner s = new Scanner(System.in);
+	s.useDelimiter(",|\\s");
+	s.findInLine("select");
+	List<Integer> atts= new ArrayList<Integer>() ;
+	do{
+		atts.add(Integer.parseInt(s.next()));
+	}while(s.hasNextInt());
+	
+	s.findInLine("from");
+    do{
+    	
+    }while(s.hasNext() && s.next() !="where");
+    
+    s.findInLine("where");
+    s.close();
+    
+    int[] arr = atts.stream().mapToInt(Integer::intValue).toArray();
+    testProjectionImpl(arr);
+}

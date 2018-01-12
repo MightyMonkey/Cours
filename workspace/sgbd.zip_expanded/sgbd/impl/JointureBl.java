@@ -16,9 +16,24 @@ public class JointureBl {
 					count++;
 			}
 		}
+		Nuplet[] result = new NupletInt[count];
+		count=0;
+		for(int i=0;i<t1.length;i++){
+			for(int j=0;j<t2.length;j++){
+				if(t1[i].getAtt(att1)==t2[j].getAtt(att2)){
+					result[count] = new NupletInt(t1[i].size()+t2[j].size());
+					for(int k=0;k<t1[i].size();k++){
+						result[count].putAtt(k, t1[i].getAtt(k));
+					}
+					for(int k=0;k<t2[j].size();k++){
+						result[count].putAtt(k+t1[i].size(), t2[j].getAtt(k));
+					}
+					count++;
+				}
+			}
+		}
 		
-		
-		return null;
+		return result;
 	}
 }/*
 if(t1[i].getAtt(att1) == t2[j].getAtt(att2)){

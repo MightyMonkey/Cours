@@ -2,8 +2,8 @@ package sgbd.test;
 
 import sgbd.stockage.*;
 import sgbd.impl.*;
-
 import java.util.*;
+
 
 public class Main {
 	
@@ -46,31 +46,14 @@ public class Main {
 		//testRestrictionInt(4,(byte)50);
 		//testProjectionImpl();
 		//testJointureBl();
-		parse();
+		//parse();
+		Parser parser = new Parser();
+		Scanner s = new Scanner(System.in);
+		String commande = s.nextLine().toLowerCase();
+		String[] result = parser.Parser(commande);
+		
 	}
 	
-	public static void parse()
-	{
-		System.out.println("\n donnez la commande select from  à effectuer");
-		Scanner s = new Scanner(System.in);
-		s.useDelimiter(",|\\s");
-		s.findInLine("select");
-		List<Integer> atts= new ArrayList<Integer>() ;
-		do{
-			atts.add(Integer.parseInt(s.next()));
-		}while(s.hasNextInt());
-		
-		s.findInLine("from");
-	    do{
-	    	
-	    }while(s.hasNext() && s.next() !="where");
-	    
-	    s.findInLine("where");
-	    s.close();
-	    
-	    int[] arr = atts.stream().mapToInt(Integer::intValue).toArray();
-	    testProjectionImpl(arr);
-	}
 	
 	public static void testJointureBl()
 	{
@@ -83,7 +66,7 @@ public class Main {
 		System.out.println("test jointure BL");
 		JointureBl jointBl = new JointureBl();
 		
-		for (Nuplet o : jointBl.joinBl(n, 0, m, 2)){
+		for (Nuplet o : jointBl.joinBl(n, 9, m, 0)){
 			System.out.println(o.toString());
 		}
 	}

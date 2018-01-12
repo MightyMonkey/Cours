@@ -59,22 +59,45 @@ public class TableInt implements Table{
 
 	@Override
 	public void insert(Nuplet n) {
-		for(int i=0;i<this.size();i++){
-			if((int)this.get(i).getAtt(1) < (int)n.getAtt(1)){
-				
-			}
-		}
+		f.store(this.records, n);
+		this.records++;
 	}
 
 	@Override
-	public void delete(Nuplet n, int att, Object value) {
-		// TODO Auto-generated method stub
+	public Nuplet[] delete(Nuplet n, int att, Object value) {
+		Vector<Nuplet> v = new Vector<Nuplet>();
+		for(int i=0;i<this.size();i++){
+			Nuplet temp = this.get(i);
+			if((byte)(temp.getAtt(att)) != (byte)value){
+				v.addElement(temp);
+			}
+			else
+				System.out.println("element supprime : "+temp);
+		}
+		Nuplet[] ret = new Nuplet[v.size()];
+		for(int i=0;i<v.size();i++)
+			ret[i] = v.elementAt(i);
+		return ret;
 		
 	}
 
 	@Override
-	public void update(Nuplet n, int att, Object oldValue, Object newValue) {
-		// TODO Auto-generated method stub
+	public Nuplet[] update(Nuplet n, int att, Object oldValue, Object newValue) {
+		Vector<Nuplet> v = new Vector<Nuplet>();
+		for(int i=0;i<this.size();i++){
+			Nuplet temp = this.get(i);
+			if((byte)(temp.getAtt(att)) != (byte)oldValue){
+				v.addElement(temp);
+			}
+			else{
+				temp.putAtt(att, newValue);
+				v.addElement(temp);
+			}
+		}
+		Nuplet[] ret = new Nuplet[v.size()];
+		for(int i=0;i<v.size();i++)
+			ret[i] = v.elementAt(i);
+		return ret;
 		
 	}
 

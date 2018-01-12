@@ -1,0 +1,17 @@
+package sgbd.impl;
+
+
+import sgbd.stockage.*;
+import sgbd.impl.*;
+import java.util.*;
+import java.util.regex.Pattern;
+
+public class Parser {
+	
+	
+	public String[] Parser(String commande)
+	{
+		Pattern select = Pattern.compile("select");
+		return null;
+	}
+}

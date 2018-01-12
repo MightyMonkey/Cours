@@ -1,0 +1,28 @@
+package sgbd.impl;
+
+
+import sgbd.stockage.*;
+import sgbd.impl.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Parser {
+	
+	
+	public String[] Parser(String commande)
+	{
+		Pattern selectfrom = Pattern.compile("(?i)\\s*select\\s*((\\w+\\s*,\\s*)*(\\w+)|[*])\\s*from\\s*(\\w+)\\s*;");
+		Pattern selectfromwhere = Pattern.compile("(?i)\\s*select(?:((?:\\w+\\s*,\\s*)*)\\w+|[*]) from (\\w+)\\s* where (\\w+)=|<|>(\\w+);");
+				
+		Matcher simple = selectfrom.matcher(commande);
+		Matcher complique =selectfromwhere.matcher(commande);
+		System.out.println(simple.groupCount());
+		if(simple.matches()){
+			for(int i = simple.start();i <= simple.groupCount();i++){
+				System.out.println(simple.group(i));
+			}
+		}
+		
+		return null;
+	}
+}
