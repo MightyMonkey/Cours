@@ -1,0 +1,109 @@
+package sgbd.test;
+
+import sgbd.stockage.*;
+import sgbd.impl.*;
+import java.util.Scanner;
+
+public class Main {
+	
+	public static final int datasetSize = 100;
+	public static final int nupletSize = 10;
+	private static Table t;
+	
+	public static void main(String[] args){
+		
+		// G�n�ration des donn�es
+		Nuplet[] tab = new NupletInt[datasetSize];
+		for(int i=0;i<datasetSize;i++){
+			tab[i] = new NupletInt(nupletSize);
+			for(int j=0;j<nupletSize;j++){
+				tab[i].putAtt(j, (byte)(j+i));
+			}
+		}
+
+		// Impl�mentation avec Table
+		
+		System.out.println("------------------------------------------------");	
+		System.out.println("Cr�ation d'une table");
+		t = new TableInt("/tmp/table2", nupletSize);
+		for(int i=0;i<datasetSize;i++){
+			t.put(tab[i]);
+			}
+		System.out.println("Lecture d'une table");
+		for(int i=0;i<datasetSize;i++){
+			System.out.println(t.get(i).toString());
+			}
+		
+		// Utilisation de getByAtt
+		System.out.println("Test GetByAtt");
+		Nuplet[] res = t.getByAtt(4, (byte)50);
+		for(Nuplet n : res){
+			System.out.println(n.toString());
+		}
+		
+		
+		//testRestrictionInt(4,(byte)50);
+		//testProjectionImpl();
+		testJointureBl();
+		
+	}
+	
+	public static void parse()
+	{
+		System.out.println("\n donnez la commande sql à effectuer");
+		Scanner sc = new Scanner(System.in);
+	}
+	
+	public static void testJointureBl()
+	{
+		System.out.println("\n===TESTS JOINTURES===");
+		Nuplet[] n,m;
+		n=t.fullScan();
+		ProjectionImpl projImpl = new ProjectionImpl();
+		m = projImpl.project(n, new int[]{1,2,3});
+		
+		System.out.println("test jointure BL");
+		JointureBl jointBl = new JointureBl();
+		
+		for (Nuplet o : jointBl.joinBl(n, 0, m, 2)){
+			System.out.println(o.toString());
+		}
+	}
+	
+	public static void testProjectionImpl()
+	{
+		System.out.println("\n===TESTS PROJECTION===");
+		Nuplet[] n;
+		n=t.fullScan();
+		ProjectionImpl projImpl = new ProjectionImpl();
+		
+		System.out.println("projection sur les attributs [1,2,3]");
+		for (Nuplet m : projImpl.project(n, new int[]{1,2,3})){
+			System.out.println(m.toString());
+		}
+	}
+	
+	public static void testRestrictionInt(int att, Object object)
+	{
+		System.out.println("\n====TESTS RESTRICTION====");
+		RestrictionInt restrictInt = new RestrictionInt();
+		Nuplet[] m;
+		m=t.fullScan();
+		for(Nuplet l : m)
+			System.out.println(l.toString());
+		
+		System.out.println("test egalite");
+		for(Nuplet n : restrictInt.egalite(m, att, object)){
+			System.out.println(n.toString());
+		}
+		System.out.println("test superieur");
+		for(Nuplet n : restrictInt.superieur(m, att, object)){
+			System.out.println(n.toString());
+		}
+		System.out.println("test inferieur");
+		for(Nuplet n : restrictInt.inferieur(m, att, object)){
+			System.out.println(n.toString());
+		}
+	}
+}
+

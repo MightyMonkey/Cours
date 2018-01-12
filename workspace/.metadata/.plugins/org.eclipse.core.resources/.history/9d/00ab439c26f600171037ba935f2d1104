@@ -1,0 +1,12 @@
+package sgbd.impl;
+
+import sgbd.stockage.*;
+
+public class JointureBl {
+
+	public Nuplet[] joinBl(){
+		
+		
+		return null;
+	}
+}

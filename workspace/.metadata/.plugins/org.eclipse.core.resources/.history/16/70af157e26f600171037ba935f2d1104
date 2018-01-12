@@ -1,0 +1,8 @@
+package sgbd.impl;
+
+public class JointureBl {
+
+	public Nuplet[] joinBl(){
+		
+	}
+}

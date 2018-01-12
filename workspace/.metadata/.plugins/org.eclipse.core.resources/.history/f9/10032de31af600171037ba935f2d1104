@@ -1,0 +1,5 @@
+package sgbd.impl;
+
+public class ProjectionImpl implements sgbd.operateurs.Projection {
+
+}

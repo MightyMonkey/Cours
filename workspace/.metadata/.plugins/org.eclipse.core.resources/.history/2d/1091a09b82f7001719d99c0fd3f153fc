@@ -1,0 +1,32 @@
+package sgbd.impl;
+
+import sgbd.stockage.*;
+
+public class JointureBl {
+
+	/*
+	 * att1 et att2 sont les numéros de colonne.
+	 */
+	public Nuplet[] joinBl(Nuplet[] t1, int att1, Nuplet[] t2, int att2){
+		Nuplet[] result;
+		if(t1.length>t2.length)
+			result = new NupletInt[t1.length];
+		else
+			result = new NupletInt[t2.length];
+		int count = 0;
+		
+		for(int i=0;i<result.length;i++){
+			for(int j=0;j<t2.length;j++){
+				if(t1[i].getAtt(att1) == t2[j].getAtt(att2)){
+					result[count] = new NupletInt(t1[i].size()+t2[j].size()-1);
+					result[count] = t1[i];
+					for(int k=0;k<t2[j].size();k++){
+						result[count].putAtt(k+t1[i].size(), t2[j].getAtt(k));
+					}
+					count++;
+				}
+			}
+		}
+		return result;
+	}
+}
