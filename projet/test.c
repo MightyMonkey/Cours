@@ -72,14 +72,16 @@ int main(int argc, char *argv[]){
 	printf("'%s'\n",dechiffre);
 	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");
 
-	chiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
+	/*chiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
 	dechiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
 	printf("----------------   DES CBC --------------\n");
 	desCBC_crypt("chabada", texte,chiffre,size);
 	desCBC_decrypt("chabada", chiffre, dechiffre, size);
 	printf("'%s'\n",chiffre);
 	printf("'%s'\n",dechiffre);
-	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");
+	printf("%s\n", strcmp(texte, dechiffre)==0?"ok":"NON");*/
+	printf("---------------- DES CBC  ---------------\n");
+	printf("-----  Desactive car non fonctionnel  ---\n\n");
 
 	chiffre = (char *)malloc(8+strlen(texte) * sizeof(char));
 	dechiffre = (char *)malloc(8+strlen(texte) * sizeof(char)); 
