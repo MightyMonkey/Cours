@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ascii"?>
+<history><client name="pkg" version="1.122.2-52.2817"><args><arg><![CDATA[/BUILD_AREA/v3-tools/2.3-b52-toolkit/pkg-toolkit-sunos-sparc/pkg/bin/client.py]]></arg><arg><![CDATA[install]]></arg><arg><![CDATA[glassfish-grizzly-full]]></arg></args></client><operation end_time="20120713T010101Z" name="install" result="Succeeded" start_time="20120713T010101Z" userid="10" username="java_re"><start_state><![CDATA[UNEVALUATED:
++pkg:/glassfish-grizzly-full@1.9.50,0-1:20120712T215646Z
+]]></start_state><end_state><![CDATA[None -> pkg:/glassfish-grizzly-full@1.9.50,0-1:20120712T215646Z
+]]></end_state></operation></history>

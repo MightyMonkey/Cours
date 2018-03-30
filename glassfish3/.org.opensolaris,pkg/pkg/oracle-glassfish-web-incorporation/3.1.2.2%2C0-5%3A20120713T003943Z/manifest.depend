@@ -1,0 +1,12 @@
+depend fmri=pkg:/glassfish-performance-tuner@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-das-recovery@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-branding-gui@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-toplink-grid@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-branding@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-coherence-web@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-lbplugin-gui@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-oam@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-monitoring-scripting-client@3.1.2.2,0-5 type=incorporate
+depend fmri=pkg:/glassfish-mysql-jdbc-drivers@5.1.14,0-0 type=incorporate
+depend fmri=pkg:/glassfish-oracle-jdbc-drivers@11.2.0.2.0,0-0 type=incorporate
+depend fmri=pkg:/glassfish-web-incorporation@3.1.2.2,0-5 type=require

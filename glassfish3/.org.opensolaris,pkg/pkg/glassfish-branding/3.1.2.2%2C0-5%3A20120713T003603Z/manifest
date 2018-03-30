@@ -1,0 +1,12 @@
+set name=fmri value=pkg:/glassfish-branding@3.1.2.2,0-5:20120713T003603Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="This package contains Oracle branding extensions to GlassFish. GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="GlassFish Branding Extensions"
+depend fmri=pkg:/glassfish-nucleus type=require
+license e152eeea72782cf8fac747e8fc8aeecd79c67a7d chash=76957b15d309a5d33eae538c77fb5691e049a060 license=OTN pkg.csize=4120 pkg.size=11016
+dir group=sys mode=0755 owner=root path=glassfish
+dir group=sys mode=0755 owner=root path=glassfish/lib
+dir group=sys mode=0755 owner=root path=glassfish/modules
+file a1cfdec3eed37ada893183f9081ce77c2e3d4ec7 chash=24677e279eba193d3772fbc443cdbd50734f141e group=sys mode=0644 owner=root path=glassfish/lib/upgrade-branding.jar pkg.csize=32597 pkg.size=37382
+file 09ebf4b3fcc6c1e676d4950e23a2a77b0350cf42 chash=952da596ec66124a86fa5b5e131796434d7991e7 group=sys mode=0644 owner=root path=glassfish/modules/branding-fragment.jar pkg.csize=2525 pkg.size=3641
+set name=publisher value=release.glassfish.oracle.com

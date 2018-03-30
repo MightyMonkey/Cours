@@ -1,0 +1,12 @@
+file 10f888a9fee4a9af37c0d7efb216de591b47a2ee chash=d10295bf52ff47c4d04f8d89e82737eb0d88ad33 group=sys mode=0755 owner=root path=glassfish/bin/capture-schema.bat pkg.csize=1174 pkg.size=2485
+file d912f831b6b9733de5e7534f8e4acf4dab9c00fd chash=84d5584f9edbde4c269228c3f5669c9c6a368740 group=sys mode=0755 owner=root path=glassfish/bin/capture-schema pkg.csize=1179 pkg.size=2626
+file a620841782cf1d03fcc557f1836ebbc7bac0c93a chash=304630aaaea7914de6c1a3e77e3d95d43a142c37 group=sys mode=0644 owner=root path=glassfish/modules/dbschema-repackaged.jar pkg.csize=233970 pkg.size=269332
+file ec5887efbd50c45ed9045f17cc96f3a9e2ef1c93 chash=1f6525659aa093669267c64db2e9f286c6a1248d group=sys mode=0644 owner=root path=glassfish/modules/cmp-generator-database.jar pkg.csize=63707 pkg.size=69199
+file 1c5dd43726400246a859379fb63c1984580eeb2d chash=fd6e4228b8f69576f8854f58bf7df7708571d299 group=sys mode=0644 owner=root path=glassfish/modules/antlr-repackaged.jar pkg.csize=416188 pkg.size=437027
+file 6dfb9874ff28fb4454169634913ea644ccc924f5 chash=99253ac579d62ecbd3c211fd5cb117c6f5e9095c group=sys mode=0644 owner=root path=glassfish/modules/cmp-ejb-mapping.jar pkg.csize=68994 pkg.size=73881
+file e10ee40f5a59635ccfe1da6618edda55ed7fabbb chash=32857eca4e4a6ae60829f419c047c57700c2c759 group=sys mode=0644 owner=root path=glassfish/modules/cmp-enhancer.jar pkg.csize=210631 pkg.size=231122
+file fd052fcf2cc5993e47f4c6d73a99a53198e6839c chash=44bf9c5cc09e9d4d5c2e734dfe91f326ca00700f group=sys mode=0644 owner=root path=glassfish/modules/cmp-support-sqlstore.jar pkg.csize=547585 pkg.size=591640
+file 48fe92704b148ce67c964b9c093d45366f0cbbd2 chash=4fc407fa62cdc27b6f970f51e058e451f865e71f group=sys mode=0644 owner=root path=glassfish/modules/cmp-utility.jar pkg.csize=59329 pkg.size=67573
+file 880e23bb9ee28531e95cbd25ca751ff2b1d8861f chash=81bc95c64ad4fd8c34c3ce0659cdfcc9e90fbd22 group=sys mode=0644 owner=root path=glassfish/modules/cmp-internal-api.jar pkg.csize=16889 pkg.size=21907
+file 73646717edd194f49e335d4a5ce6eb8f7d707ea7 chash=8fb13a413cbc8d2c34ac7a06ed8ce4c9a8225fb9 group=sys mode=0644 owner=root path=glassfish/modules/cmp-model.jar pkg.csize=133735 pkg.size=148759
+file 2f78d1faaf136058912a05402dba0bdcb69f78ad chash=98f9c51b0ff29ccd1c7576404f537a4dc9ac1a4e group=sys mode=0644 owner=root path=glassfish/modules/cmp-support-ejb.jar pkg.csize=245646 pkg.size=259777

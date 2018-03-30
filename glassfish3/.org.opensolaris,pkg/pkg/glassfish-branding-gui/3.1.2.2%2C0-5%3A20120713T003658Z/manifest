@@ -1,0 +1,10 @@
+set name=fmri value=pkg:/glassfish-branding-gui@3.1.2.2,0-5:20120713T003658Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="Web based management console for administering GlassFish server. The administration console enables configuration and management of core features of the server, such as security realms and general server properties, and to obtain general information about the server. If this package is installed, one can plug in extensions to the administration console to administer other features, such as the web container or Java Database Connectivity (JDBC) software resources. GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use.  This package contains extensions to GlassFish administration console, including Oracle theme."
+set name=pkg.summary value="Administration Console Theme"
+depend fmri=pkg:/glassfish-gui type=require
+license e152eeea72782cf8fac747e8fc8aeecd79c67a7d chash=76957b15d309a5d33eae538c77fb5691e049a060 license=OTN pkg.csize=4120 pkg.size=11016
+dir group=sys mode=0755 owner=root path=glassfish
+dir group=sys mode=0755 owner=root path=glassfish/modules
+file 736cc9b2c05496a27c0789a876026d085fe0b540 chash=b8c4dc6169b6ad86911b3d46237c4d49954269a2 group=sys mode=0644 owner=root path=glassfish/modules/console-custom-branding-plugin.jar pkg.csize=51004 pkg.size=54494
+set name=publisher value=release.glassfish.oracle.com

@@ -1,0 +1,20 @@
+set name=fmri value=pkg:/glassfish-enterprise-full-profile@3.1.2.2,0-5:20120713T003847Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="Oracle GlassFish Server Full Platform Metapackage.  GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="Oracle GlassFish Server Full Platform"
+depend fmri=pkg:/glassfish-full-profile type=require
+depend fmri=pkg:/glassfish-branding-gui type=require
+depend fmri=pkg:/glassfish-lbplugin-gui type=require
+depend fmri=pkg:/glassfish-performance-tuner type=require
+depend fmri=pkg:/glassfish-monitoring-scripting-client type=require
+depend fmri=pkg:/glassfish-mysql-jdbc-drivers type=require
+depend fmri=pkg:/glassfish-toplink-grid type=require
+depend fmri=pkg:/glassfish-coherence-web type=require
+depend fmri=pkg:/oracle-glassfish-full-incorporation type=require
+depend fmri=pkg:/glassfish-branding type=require
+depend fmri=pkg:/mq-branding type=require
+depend fmri=pkg:/glassfish-das-recovery type=require
+depend fmri=pkg:/glassfish-oam type=require
+depend fmri=pkg:/glassfish-oracle-jdbc-drivers type=require
+license e152eeea72782cf8fac747e8fc8aeecd79c67a7d chash=76957b15d309a5d33eae538c77fb5691e049a060 license=OTN pkg.csize=4120 pkg.size=11016
+set name=publisher value=release.glassfish.oracle.com

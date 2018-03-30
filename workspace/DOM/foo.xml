@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<bibliotheque>
+	<livre>
+		<titre>Titre 1</titre>
+		<auteur>Auteur 1</auteur>
+		<editeur>Editeur 1</editeur>
+	</livre>
+	<livre><titre>Titre 2</titre><auteur>Auteur 2</auteur><editeur>Editeur 2</editeur>
+	</livre>
+	<livre><titre>Titre 3</titre><auteur>Auteur 3</auteur><editeur>Editeur 3</editeur>
+	</livre>
+</bibliotheque>

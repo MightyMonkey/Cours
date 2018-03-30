@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT listepays (pays+)>
+<!ELEMENT pays (nom, capitale, population, accès_mer?) >
+<!ATTLIST pays 
+	idpays ID #REQUIRED
+	voisins IDREFS #IMPLIED>
+<!ELEMENT nom (#PCDATA)>
+<!ELEMENT capitale (#PCDATA)>
+<!ATTLIST capitale idcapitale ID #IMPLIED>
+<!ELEMENT population (#PCDATA)>
+<!ATTLIST population 
+	année CDATA #REQUIRED
+	unité (millier | million)  #IMPLIED>
+<!ELEMENT accès_mer EMPTY>
+<!ATTLIST accès_mer 
+	accès (oui | non) "non"> 

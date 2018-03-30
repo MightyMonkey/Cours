@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="ascii"?>
+<history><client name="pkg" version="1.122.2-52.2817"><args><arg><![CDATA[/BUILD_AREA/v3-tools/2.3-b52-toolkit/pkg-toolkit-sunos-sparc/pkg/bin/client.py]]></arg><arg><![CDATA[install]]></arg><arg><![CDATA[glassfish-jsf]]></arg></args></client><operation end_time="20120713T010144Z" name="install" result="Succeeded" start_time="20120713T010140Z" userid="10" username="java_re"><start_state><![CDATA[UNEVALUATED:
++pkg:/glassfish-jsf@2.1.6,0-4:20120712T221820Z
+]]></start_state><end_state><![CDATA[None -> pkg:/glassfish-jsf@2.1.6,0-4:20120712T221820Z
+None -> pkg:/glassfish-web@3.1.2.2,0-5:20120712T222226Z
+]]></end_state></operation></history>

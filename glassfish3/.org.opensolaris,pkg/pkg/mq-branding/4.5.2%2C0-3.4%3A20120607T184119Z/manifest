@@ -1,0 +1,13 @@
+set name=fmri value=pkg:/mq-branding@4.5.2,0-3.4:20120607T184119Z
+set name=pkg.maintainer_url value=http://mq.java.net/
+set name=info.classification value=":Message-Oriented Middleware"
+set name=pkg.detailed_url value=http://mq.java.net/about.html
+set name=pkg.summary value="Message Queue Branding Package"
+set name=pkg.upstream_url value=http://mq.java.net/
+set name=pkg.description value="Message Queue Branding Package.  Message Queue (MQ) is an enterprise quality, production ready, scalable messaging server.  It provides a complete Java Message Service (JMS) implementation for message oriented system integration.  In addition, Message Queue provides the additional enterprise features that are necessary for enterprise deployments, large and small."
+set name=info.source_url value=http://mq.java.net/downloads.html
+depend fmri=pkg:/mq-server@4.5.2 type=require
+dir group=sys mode=0755 owner=root path=mq
+dir group=sys mode=0755 owner=root path=mq/lib
+file f952b49db1ff4193631be022c823875bdd14d7c7 chash=a27dbfa25268f25d7ba897474a5320a06c615cc5 group=sys mode=0755 owner=root path=mq/lib/imqbrand.jar pkg.csize=14046 pkg.size=14981
+set name=publisher value=release.glassfish.oracle.com

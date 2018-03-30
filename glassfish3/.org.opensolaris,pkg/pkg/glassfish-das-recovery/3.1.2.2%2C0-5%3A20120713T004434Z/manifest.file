@@ -1,0 +1,3 @@
+file 22014416ba5df7622fa22e4464cfef39734afe67 chash=3aee61e00870f522f27a7ecc605507217c257e81 group=sys mode=0644 owner=root path=glassfish/modules/das-backup.jar pkg.csize=138985 pkg.size=150999
+file 4d6dba0150e2b0161fe588fbee09acee93c79037 chash=786c05cbf30fcd9fe48360abcd536dc4e1fcebf0 group=sys mode=0644 owner=root path=glassfish/modules/das-backup-gui-plugin.jar pkg.csize=55627 pkg.size=61248
+file df4ac432674f9890001b7a40f53f4f63bca23325 chash=a2272c48cfe5b28da6b66fdda616e95b460f0a7e group=sys mode=0644 owner=root path=glassfish/lib/asadmin/das-backup-cli.jar pkg.csize=9687 pkg.size=11524

@@ -1,0 +1,70 @@
+[authority_release.glassfish.oracle.com]
+origin = http://pkg.oracle.com/glassfish/v3/release//
+ssl_key = None
+ssl_cert = None
+repo.related_uris = []
+mirrors = []
+repo.description = None
+repo.name = None
+repo.sort_policy = priority
+disabled = False
+alias = None
+prefix = release.glassfish.oracle.com
+repo.legal_uris = []
+repo.registered = False
+repo.registration_uri = None
+repo.collection_type = core
+repo.refresh_seconds = 14400
+
+[authority_contrib.glassfish.oracle.com]
+origin = http://pkg.oracle.com/glassfish/v3/contrib/
+ssl_key = None
+ssl_cert = None
+repo.related_uris = []
+mirrors = []
+repo.description = None
+repo.name = None
+repo.sort_policy = priority
+disabled = False
+alias = None
+prefix = contrib.glassfish.oracle.com
+repo.legal_uris = []
+repo.registered = False
+repo.registration_uri = None
+repo.collection_type = core
+repo.refresh_seconds = 14400
+
+[variant]
+variant.opensolaris.zone = global
+
+[authority_contrib.glassfish.org]
+origin = http://pkg.glassfish.org/v3/contrib/
+ssl_key = None
+ssl_cert = None
+repo.related_uris = []
+mirrors = []
+repo.description = None
+repo.name = None
+repo.sort_policy = priority
+disabled = False
+alias = None
+prefix = contrib.glassfish.org
+repo.legal_uris = []
+repo.registered = False
+repo.registration_uri = None
+repo.collection_type = core
+repo.refresh_seconds = 14400
+
+[filter]
+
+[property]
+send-uuid = True
+description = Oracle GlassFish Server is the commercial counterpart to GlassFish Server Open Source Edition, a lightweight platform for Java EE and hybrid Java EE / OSGi applications. Annual subscriptions include support, patches, knowledge base, and GlassFish Server Control for improved management and monitoring.
+title = Oracle GlassFish Server
+image-tou-url = http://glassfish-repo.java.net/terms.html
+require-optional = False
+flush-content-cache-on-success = False
+display-copyrights = True
+preferred-authority = release.glassfish.oracle.com
+pursue-latest = True
+

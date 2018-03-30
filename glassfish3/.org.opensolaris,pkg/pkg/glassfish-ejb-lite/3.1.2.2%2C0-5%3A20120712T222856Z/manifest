@@ -1,0 +1,15 @@
+set name=fmri value=pkg:/glassfish-ejb-lite@3.1.2.2,0-5:20120712T222856Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="EJB 3.1 Lite is a lightweight subset of EJB 3.1 that includes support for local session beans (stateful / stateless / singleton) and .war-based packaging/deployment.  GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="GlassFish EJB Lite Container"
+depend fmri=pkg:/glassfish-common type=require
+depend fmri=pkg:/glassfish-jpa type=require
+license 8741fa556feea4ca58ec28abc47de0bf9d5b39a3 chash=28b7cfba8f297b99296afc231955dc90e8d76d47 license="CDDL and GPL v2 with classpath exception" pkg.csize=12394 pkg.size=38052
+dir group=sys mode=0755 owner=root path=glassfish
+dir group=sys mode=0755 owner=root path=glassfish/modules
+file 9b37e244bb6f2ec69b23d739c85908fd44e9f42d chash=d41d255bc2425106b1f8aab261f2d304fa0b2e65 group=sys mode=0644 owner=root path=glassfish/modules/javaee-kernel.jar pkg.csize=6916 pkg.size=8399
+file 301ff5214ee446a8ea12457caef15a3fd8770248 chash=a29aa6f6fac57ca86bcc53352d3453d3c99c0469 group=sys mode=0644 owner=root path=glassfish/modules/ejb-container.jar pkg.csize=726196 pkg.size=780176
+file f2ad2b44144a89031af5165f6a03b6627cc18d0a chash=67d0b3fc94133a318a00d418fbdfe34af3fad572 group=sys mode=0644 owner=root path=glassfish/modules/console-ejb-lite-plugin-help.jar pkg.csize=15103 pkg.size=17416
+file 85ca2118a657da5bce1f9ac0c562fc4b1f971a52 chash=4061fc595f4d90d2dcb1657d53ea6b7840bdfc57 group=sys mode=0644 owner=root path=glassfish/modules/gf-ejb-connector.jar pkg.csize=71544 pkg.size=80314
+file 8551a2549ca9ef7ca2bbc4771ad1f098fa96d943 chash=7a3103faa05f34d4f61b9eebd3419bad95489216 group=sys mode=0644 owner=root path=glassfish/modules/console-ejb-lite-plugin.jar pkg.csize=14899 pkg.size=17715
+set name=publisher value=release.glassfish.oracle.com

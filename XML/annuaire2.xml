@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<numeros xsi:noNamespaceSchemaLocation="annuaire2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <contact titre="contact1" techno="XML">
+        <nom>Charrier</nom>
+        <prenom>Etienne</prenom>
+        <telephone>06 06 06 06 06</telephone>
+        <email>etienne@insacvl.fr</email>
+    </contact>
+
+    <contact titre="contact2">
+        <nom>Doe</nom>
+        <prenom>John</prenom>
+        <email>john@insacvl.fr</email>
+        <email>john@ensibourges.fr</email>
+    </contact>
+
+    <contact titre="contact3" techno="Java">
+        <nom>Geveaux</nom>
+        <prenom>Damien</prenom>
+        <email>damien@insacvl.fr</email>
+    </contact>
+
+    <contact titre="contact4">
+        <nom>Klopfenstein</nom>
+        <prenom>Luc</prenom>
+        <telephone>07 07 07 07 07</telephone>
+        <email>luc@insacvl.fr</email>
+    </contact>
+
+</numeros>

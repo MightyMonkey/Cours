@@ -1,0 +1,10 @@
+set name=fmri value=pkg:/glassfish-oracle-jdbc-drivers@11.2.0.2.0,0-0:20120713T004720Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="Oracle Thin JDBC Driver (type IV) for the Oracle Database. This version is tested and certified with Oracle GlassFish Server. GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="Oracle JDBC Drivers for GlassFish"
+depend fmri=pkg:/glassfish-nucleus type=require
+license e152eeea72782cf8fac747e8fc8aeecd79c67a7d chash=76957b15d309a5d33eae538c77fb5691e049a060 license=OTN pkg.csize=4120 pkg.size=11016
+dir group=sys mode=0755 owner=root path=oracle-jdbc-drivers
+file ad7c8bb402f36196230d439f9b5f846d83f55f9e chash=8ea6a6bf9ce6fc51e49737fbbda733ef9c619203 group=sys mode=0644 owner=root path=oracle-jdbc-drivers/ojdbc6_g.jar pkg.csize=3781453 pkg.size=3872378
+file 2f89cd9176772c3a6c261ce6a8e3d0d4425f5679 chash=4b955c94a3b47cb1c0f45c92a1fc2db527cc7a33 group=sys mode=0644 owner=root path=oracle-jdbc-drivers/ojdbc6.jar pkg.csize=2062839 pkg.size=2152051
+set name=publisher value=release.glassfish.oracle.com

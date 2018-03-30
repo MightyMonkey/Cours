@@ -1,0 +1,35 @@
+#pas fini, manque des m: et p:
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<m:livre xmlns:m='http://www.masociete.com'  p='http://www.monentreprise.com'>
+<m:auteurs>
+	<m:auteur>
+	<m:nom>dupont</m:nom><m:prenom>jean</m:prenom>
+	</m:auteur>
+	<m:auteur>
+	<m:nom>dulac</nom><m:prenom>jean</prenom>
+	</auteur>
+</auteurs>
+<m:titre>LE livre</titre>
+<m:section>
+<m:titre>première</titre>
+	<m:chapitre><m:titre>chap1</titre>
+		<m:parag>blabla</parag>
+		<m:parag>texte</parag>
+	</chapitre>
+	<m:chapitre><m:titre>chap2</titre>
+		<m:parag>text</parag>
+		<m:parag>bla</parag>
+	</chapitre>
+</section>
+<p:section>
+<p:titre>deuxième</p:titre>
+	<m:chapitre><m:titre>chap1</titre>
+		<m:parag>texte</parag>
+		<m:parag>blabla</parag>
+	</chapitre>
+	<m:chapitre><m:titre>chap2</titre>
+		<m:parag>text</parag>
+		<parag>texte</parag>
+	</chapitre>
+</section>
+</livre>

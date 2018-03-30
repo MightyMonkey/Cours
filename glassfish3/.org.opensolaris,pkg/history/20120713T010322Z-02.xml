@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="ascii"?>
+<history><client name="pkg" version="1.122.2-52.2817"><args><arg><![CDATA[/BUILD_AREA/v3-tools/2.3-b52-toolkit/pkg-toolkit-sunos-sparc/pkg/bin/client.py]]></arg><arg><![CDATA[install]]></arg><arg><![CDATA[javadb-client]]></arg></args></client><operation end_time="20120713T010326Z" name="install" result="Succeeded" start_time="20120713T010322Z" userid="10" username="java_re"><start_state><![CDATA[UNEVALUATED:
++pkg:/javadb-client@10.8.1.2,5.10:20111107T225930Z
+]]></start_state><end_state><![CDATA[None -> pkg:/javadb-client@10.8.1.2,5.10:20111107T225930Z
+]]></end_state></operation></history>

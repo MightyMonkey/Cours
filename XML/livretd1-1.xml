@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<livre>
+<auteurs>
+	<auteur>
+	<nom>dupont</nom><prenom>jean</prenom>
+	</auteur>
+	<auteur>
+	<nom>dulac</nom><prenom>jean</prenom>
+	</auteur>
+</auteurs>
+<titre>LE livre</titre>
+<section>
+<titre>première</titre>
+	<chapitre><titre>chap1</titre>
+		<parag>blabla</parag>
+		<parag>texte</parag>
+	</chapitre>
+	<chapitre><titre>chap2</titre>
+		<parag1>text</parag1>
+		<parag2>bla</parag2>
+	</chapitre>
+</section>
+<section>
+<titre>deuxième</titre>
+	<chapitre><titre>chap1</titre>
+		<parag>texte</parag>
+		<parag>blabla</parag>
+	</chapitre>
+	<chapitre><titre>chap2</titre>
+		<parag>text</parag>
+		<parag>texte</parag>
+	</chapitre>
+</section>
+</livre>

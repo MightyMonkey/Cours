@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+	<xs:element name="livre" type="livreType"/>
+
+	<xs:complexType name="livreType">
+		<xs:sequence>
+			<xs:element name="auteurs" type="auteursType"/>
+			<xs:element name="sections" type="sectionsType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="avecTitre"/>
+	</xs:complexType>
+
+	<xs:complexType name="auteursType">
+		<xs:group ref="auteursGrp"/>
+	</xs:complexType>
+
+	<xs:group name="auteursGrp">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" name="auteur" type="auteurType"/>
+		</xs:sequence>
+	</xs:group>
+
+	 <xs:complexType name="auteurType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+                		<xs:attribute name="nom" type="xs:string" use="required"/>
+                		<xs:attribute name="prenom" type="xs:string" use="required"/>
+            		</xs:extension>
+        	</xs:simpleContent>
+    	</xs:complexType>
+
+	<xs:attributeGroup name="avecTitre">
+		<xs:attribute name="titre" type="xs:string" use="required"/>
+	</xs:attributeGroup>
+
+	<xs:complexType name="sectionsType">
+		<xs:sequence>
+			 <xs:element maxOccurs="unbounded" minOccurs="2" name="section" type="sectionType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="sectionType">
+		<xs:sequence>
+			<xs:group minOccurs="0" ref="auteursGrp"/>
+			<xs:element maxOccurs="unbounded" minOccurs="2" name="chapitre" type="chapitreType"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="avecTitre"/>
+	</xs:complexType>
+
+	<xs:complexType name="chapitreType">
+		<xs:sequence>
+			<xs:element maxOccurs="unbounded" minOccurs="2" name="paragraphe" type="xs:string"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="avecTitre"/>
+	</xs:complexType>

@@ -1,0 +1,90 @@
+package dom1;
+
+import java.io.FileWriter;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class Livre {
+
+	static Document document = null;
+	static DocumentBuilderFactory fabrique = null;
+	
+	/*public static void main(String[] args) {
+		Document document = null;
+		DocumentBuilderFactory fabrique = null;
+		try{
+			fabrique = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = fabrique.newDocumentBuilder();
+			document = builder.newDocument();
+			Element racine = (Element) document.createElement("livre");
+			racine.setAttribute("titre", "salut");
+			document.appendChild(racine);
+
+				Element auteurs = (Element) document.createElement("auteurs");
+				Element auteur = (Element) document.createElement("auteur");
+				auteur.setAttribute("nom", "");
+				auteur.setAttribute("prenom", "");
+				racine.appendChild(auteurs);
+				auteurs.appendChild(auteur);
+				
+				Element sections = (Element) document.createElement("sections");
+				sections.appendChild(Livre.ajouterSection("livre1"));
+				racine.appendChild(sections);
+				
+//sérialisation de l’arbre DOM
+			TransformerFactory tfact = TransformerFactory.newInstance();
+			Transformer transformer = tfact.newTransformer();
+			transformer.setOutputProperty("encoding", "UTF-8");
+			DOMSource source = new DOMSource(document);
+			FileWriter fw = new FileWriter("livre.xml");
+			StreamResult result = new StreamResult(fw);
+			transformer.transform(source, result);
+		} 
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}	*/
+	public Livre(Document document){
+		this.document = document;
+	}
+	
+	public Element ajouterParagraphe(String titreChapitre, String texte){
+		Element paragraphe = (Element) document.createElement("paragraphe");
+		paragraphe.appendChild(document.createTextNode(texte));
+		return paragraphe;
+	}
+	//Ajouter un paragraphe au chapitre. 
+	public Element ajouterChapitre(String titreSection, String titreChapitre) {
+		Element chapitre = (Element) document.createElement("chapitre");
+		chapitre.setAttribute("titre", titreChapitre);
+		return chapitre;
+	}
+	//Ajouter un chapitre à la section. 
+	public Element ajouterSection(String titreSection) {
+		try{
+			fabrique = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = fabrique.newDocumentBuilder();
+			document = builder.newDocument();
+			Element section = (Element) document.createElement("section");
+			section.setAttribute("titre", titreSection);
+			return section;
+		} 
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
+	//Ajouter une section. 
+	public static void afficherLivre(){
+		
+	}
+	//Afficher dans la console le document XML final. 
+}

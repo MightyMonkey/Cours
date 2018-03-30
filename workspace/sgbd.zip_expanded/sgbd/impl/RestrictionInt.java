@@ -58,7 +58,7 @@ public class RestrictionInt implements sgbd.operateurs.Restriction{
 		
 		for(int i=0;i<t.length;i++){
 			//System.out.println(t[i].getAtt(att).getClass()+" "+v.getClass());
-			if((byte)t[i].getAtt(att) <= (byte)v){
+			if((byte)t[i].getAtt(att) < (byte)v){
 				count++;
 			}
 		}
@@ -66,7 +66,7 @@ public class RestrictionInt implements sgbd.operateurs.Restriction{
 		count=0;
 		
 		for(int i=0;i<t.length;i++){
-			if((byte)t[i].getAtt(att) <= (byte)v){
+			if((byte)t[i].getAtt(att) < (byte)v){
 				result[count]=t[i];
 				count++;
 			}

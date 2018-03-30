@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<livres>
+	<livre>
+		<titre>Webmaster in a Nutshell</titre>
+		<auteur>Stephen Spainhour</auteur>
+		<auteur>Robert Eckstein</auteur>
+		<codeisbn>2-84177-087-7</codeisbn>
+		<editeur>O'Reilly</editeur>
+	</livre>
+	<livre>
+		<titre>Le langage C++</titre>
+		<auteur>Bjarne Stroustrup</auteur>
+		<codeisbn>2-7440-1089-8</codeisbn>
+		<editeur>Pearson Education</editeur>
+	</livre>
+	<livre>
+		<titre>Java</titre>
+		<auteur>Rodrigo</auteur>
+		<codeisbn>2-8954-5264-2</codeisbn>
+		<editeur>CHASTAINC</editeur>
+	</livre>
+</livres>

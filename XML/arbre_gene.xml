@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE gene SYSTEM "arbre_gene.dtd" [DTD Externe]>
+<gene>
+	<personne id="b" genre="h">
+		<nom>Bob</nom>
+		<parents ref="m h" />
+	</personne>
+	<personne id="m" genre="f">
+		<nom>Marie</nom>
+	</personne>
+	<personne id="h" genre="h">
+		<nom>Henry</nom>
+		<parents ref="j f" />
+	</personne>
+	<personne id="j" genre="h">
+		<nom>Jean</nom>
+	</personne>
+	<personne id="f" genre="f">
+		<nom>Françoise</nom>
+	</personne>
+</gene>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<!DOCTYPE carnet src place1 place2 [DTD Interne]>
+<carnet>
+	<personne nom="dulac" prenom="paul" telephone="684684"></personne>
+	<personne nom="dupont" prenom="jean" telephone="21319"></personne>
+</carnet>

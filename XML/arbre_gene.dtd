@@ -1,0 +1,9 @@
+<!ELEMENT gene (personne)*>
+<!ELEMENT personne (nom,parents?)>
+<!ATTLIST personne
+	id ID #IMPLIED
+	genre (h|f) #REQUIRED>
+<!ELEMENT nom #PCDATA>
+<!ELEMENT parents EMPTY>
+<!ATTLIST parents
+	ref IDREFS #REQUIRED>

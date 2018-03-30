@@ -1,0 +1,53 @@
+package dom1;
+
+import java.io.FileWriter;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class domdyna {
+
+	public static void main(String[] args) {
+		Document document = null;
+		DocumentBuilderFactory fabrique = null;
+		try{
+			fabrique = DocumentBuilderFactory.newInstance();
+			DocumentBuilder builder = fabrique.newDocumentBuilder();
+			document = builder.newDocument();
+			Element racine = (Element) document.createElement("bibliotheque");
+			document.appendChild(racine);
+
+			for(int i = 1; i < 4; i++) {
+				Element livre = (Element) document.createElement("livre");
+				Element titre = (Element) document.createElement("titre");
+				titre.appendChild(document.createTextNode("Titre "+ i));
+				livre.appendChild(titre);
+				Element auteur = (Element) document.createElement("auteur");
+				auteur.appendChild(document.createTextNode("Auteur "+ i));
+				livre.appendChild(auteur);
+				Element editeur = (Element) document.createElement("editeur");
+				editeur.appendChild(document.createTextNode("Editeur "+ i));
+				livre.appendChild(editeur);
+				racine.appendChild(livre);
+			}
+//sérialisation de l’arbre DOM
+			TransformerFactory tfact = TransformerFactory.newInstance();
+			Transformer transformer = tfact.newTransformer();
+			transformer.setOutputProperty("encoding", "ISO-8859-1");
+			DOMSource source = new DOMSource(document);
+			FileWriter fw = new FileWriter("foo.xml");
+			StreamResult result = new StreamResult(fw);
+			transformer.transform(source, result);
+		} 
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+	}	
+}

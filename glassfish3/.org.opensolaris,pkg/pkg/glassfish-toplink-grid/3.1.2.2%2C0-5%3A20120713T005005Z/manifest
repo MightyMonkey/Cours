@@ -1,0 +1,9 @@
+set name=fmri value=pkg:/glassfish-toplink-grid@3.1.2.2,0-5:20120713T005005Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="GlassFish TopLink Grid Integration. TopLink Grid enables a new way to scale out JPA applications using Oracle Coherence. GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="GlassFish TopLink Grid Integration"
+depend fmri=pkg:/glassfish-common type=require
+license e152eeea72782cf8fac747e8fc8aeecd79c67a7d chash=76957b15d309a5d33eae538c77fb5691e049a060 license=OTN pkg.csize=4120 pkg.size=11016
+dir group=sys mode=0755 owner=root path=toplink
+file 50a10dbbe9e0e9ace76879192a9f58580f09a114 chash=9df26014ec8d15fdf88950cc7b8ce362e11d8a96 group=sys mode=0644 owner=root path=toplink/toplink-grid.jar pkg.csize=91349 pkg.size=102529
+set name=publisher value=release.glassfish.oracle.com

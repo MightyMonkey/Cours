@@ -58,13 +58,21 @@ public class TableInt implements Table{
 	}
 
 	@Override
-	public void insert(Nuplet n) {
-		f.store(this.records, n);
-		this.records++;
+	public Nuplet[] insert(Nuplet n) {
+		Vector<Nuplet> v = new Vector<Nuplet>();
+		for(int i=0;i<this.size();i++){
+			Nuplet temp = this.get(i);
+			v.addElement(temp);
+		}
+		v.addElement(n);
+		Nuplet[] ret = new Nuplet[v.size()];
+		for(int i=0;i<v.size();i++)
+			ret[i] = v.elementAt(i);
+		return ret;
 	}
 
 	@Override
-	public Nuplet[] delete(Nuplet n, int att, Object value) {
+	public Nuplet[] delete(int att, Object value) {
 		Vector<Nuplet> v = new Vector<Nuplet>();
 		for(int i=0;i<this.size();i++){
 			Nuplet temp = this.get(i);
@@ -82,7 +90,7 @@ public class TableInt implements Table{
 	}
 
 	@Override
-	public Nuplet[] update(Nuplet n, int att, Object oldValue, Object newValue) {
+	public Nuplet[] update(int att, Object oldValue, Object newValue) {
 		Vector<Nuplet> v = new Vector<Nuplet>();
 		for(int i=0;i<this.size();i++){
 			Nuplet temp = this.get(i);

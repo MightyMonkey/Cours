@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<livre titre="LE livre">
+<auteurs>
+	<auteur nom="dupont" prenom="jean"></auteur>
+	<auteur nom="dulac" prenom="paul"></auteur>
+</auteurs>
+<section titre="premiere">
+	<chapitre titre="chap1">
+		<parag>blabla</parag>
+		<parag>texte</parag>
+	</chapitre>
+	<chapitre titre="chap2">
+		<parag1>text</parag1>
+		<parag2>bla</parag2>
+	</chapitre>
+</section>
+<section titre="deuxieme">
+	<chapitre titre="chap1">
+		<parag>tex <element id="10">&gt;</element> te</parag>
+		<parag>blabla</parag>
+	</chapitre>
+	<chapitre titre="chap2">
+		<parag>   <![CDATA[<element id="10">&gt;</element>]]>  </parag>
+
+		<parag>texte</parag>
+	</chapitre>
+</section>
+</livre>

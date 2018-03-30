@@ -1,0 +1,27 @@
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE listepays SYSTEM "listepays.dtd"
+[
+<!ATTLIST accès_mer accès ( oui | non ) #REQUIRED >
+]>
+<listepays>
+	<pays idpays="fr" voisins = "esp" voisins="ch">
+		<Nom>France</nom>
+		<capitale idcapitale ="paris">Paris</capitale>
+		<population année="2007" unité="million">60</population>
+		<accès_mer accès="oui"></accès_mer>
+	</pays>
+	<pays idpays="esp">
+		<nom>Espagne</nom>
+		<capitale>Madrid</capitale>
+		<population année="2007">40000000</population>
+		<accès_mer accès="oui"></accès_mer>
+	</pays>
+	<pays idpays="ch">
+		<nom>Suisse</nom>
+		<capitale>Berne</capitale>
+		<population année="2007">2000000</population>
+	</pays>
+</listepays>
+
+

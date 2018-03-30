@@ -1,2 +1,3 @@
 eclipse.preferences.version=1
 org.eclipse.andmore.sdk=/eleves/cchastai/android-sdks
+org.eclipse.andmore.xmlEditor=true

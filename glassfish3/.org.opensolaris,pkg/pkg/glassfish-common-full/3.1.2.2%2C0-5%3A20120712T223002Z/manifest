@@ -1,0 +1,23 @@
+set name=fmri value=pkg:/glassfish-common-full@3.1.2.2,0-5:20120712T223002Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="GlassFish Commons Full Profile description placeholder. GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="GlassFish Commons Full Profile"
+depend fmri=pkg:/glassfish-common type=require
+license 8741fa556feea4ca58ec28abc47de0bf9d5b39a3 chash=28b7cfba8f297b99296afc231955dc90e8d76d47 license="CDDL and GPL v2 with classpath exception" pkg.csize=12394 pkg.size=38052
+dir group=sys mode=0755 owner=root path=glassfish
+dir group=sys mode=0755 owner=root path=glassfish/modules
+dir group=sys mode=0755 owner=root path=glassfish/lib
+file 95a7ebff5d4f780d9a6d1928cc515a86527e734d chash=fdab8d593230484627ce67dce942b39eebf7db29 group=sys mode=0644 owner=root path=glassfish/modules/deployment-javaee-full.jar pkg.csize=32867 pkg.size=37171
+file f9c5c35529d4fbbf64aceb62d3fcf2b195cca927 chash=4002c3425e6b3bc766f04ad482e11ed960aa864e group=sys mode=0644 owner=root path=glassfish/modules/console-common-full-plugin-help.jar pkg.csize=31674 pkg.size=36262
+file 02b1615bbb04991c0dae47d3c25f4b3b5152f115 chash=00796792b3b8452f0e748ba7ffbb1669bff36142 group=sys mode=0644 owner=root path=glassfish/modules/console-common-full-plugin.jar pkg.csize=57748 pkg.size=62008
+dir group=sys mode=0755 owner=root path=glassfish/lib/deployment
+dir group=sys mode=0755 owner=root path=glassfish/lib/install
+file 7ea3f3205c5f96b3f3f36388abcac8b3f1ab7925 chash=8bdf5014c8cd43330eac52be2fb6a9627b94b7f3 group=sys mode=0644 owner=root path=glassfish/lib/deployment/sun-as-jsr88-dm.jar pkg.csize=2466 pkg.size=3263
+dir group=sys mode=0755 owner=root path=glassfish/lib/install/applications
+file 1fbe1f3c0eb89a501507c684d173a638d07e998d chash=d8f73bcd0e8e9a42b71228056c373267a6091222 group=sys mode=0644 owner=root path=glassfish/lib/install/applications/mejb.jar pkg.csize=23185 pkg.size=25825
+dir group=sys mode=0755 owner=root path=glassfish/lib/install/applications/jaxr-ra
+file 481c7247a8e2c7af4af8bedce9d9beab109499ac chash=3d918a1aaba91256e579b1cdf116cf1b4ee9f3d1 group=sys mode=0644 owner=root path=glassfish/lib/install/applications/jaxr-ra/jaxr-ra.jar pkg.csize=13043 pkg.size=14554
+dir group=sys mode=0755 owner=root path=glassfish/lib/install/applications/jaxr-ra/META-INF
+file d78a843ea13343ec70e16ceed230db0fef511550 chash=e46897eda3261b30203e455def28c707dbb95357 group=sys mode=0644 owner=root path=glassfish/lib/install/applications/jaxr-ra/META-INF/MANIFEST.MF pkg.csize=107 pkg.size=102
+file 56e165ed7a765e7029d6609cc7e242345196cfc4 chash=dea9593687a5f1b8d335e4457ed534b544d7ede7 group=sys mode=0644 owner=root path=glassfish/lib/install/applications/jaxr-ra/META-INF/ra.xml pkg.csize=485 pkg.size=1344
+set name=publisher value=release.glassfish.oracle.com

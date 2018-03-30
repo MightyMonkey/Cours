@@ -1,0 +1,2 @@
+file 4aaf775c906f89eef15cccdebcad0c4ec69beeb2 chash=8e3d943aee4b551e5be0e961dbe83f748bf5f90e group=sys mode=0644 owner=root path=glassfish/modules/ha-shoal-cache-store.jar pkg.csize=6904 pkg.size=8481
+file 119f2c4853e41e213313daf4b7e03e84e5426f7e chash=d48bced0404a91db77ee389d74ce16a1bcd2132e group=sys mode=0644 owner=root path=glassfish/modules/ha-shoal-cache-bootstrap.jar pkg.csize=6857 pkg.size=8833

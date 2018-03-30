@@ -1,0 +1,10 @@
+set name=fmri value=pkg:/glassfish-oam@3.1.2.2,0-5:20120713T004529Z
+set name=info.classification value="Application Servers"
+set name=pkg.description value="GlassFish OAM Integration provides a GlassFish provider that integrates with OAM (Oracle Access Manager) for authentication. The provider is implemented as a JSR196 module and works in two modes - as an Identity Asserter when it is front-ended by a WebGate plugin and as an Authenticator, when it directly receives user requests. This module requires you install Oracle Access Manager SDK. GlassFish Server is a modular, lightweight, and extensible Java EE 6 application server built on OSGi. Key features include fast startup time, improved developer productivity, hybrid OSGi/Java EE applications, high availability clustering, centralized administration, and overall ease-of-use."
+set name=pkg.summary value="GlassFish OAM Integration"
+depend fmri=pkg:/glassfish-nucleus type=require
+license e152eeea72782cf8fac747e8fc8aeecd79c67a7d chash=76957b15d309a5d33eae538c77fb5691e049a060 license=OTN pkg.csize=4120 pkg.size=11016
+dir group=sys mode=0755 owner=root path=glassfish
+dir group=sys mode=0755 owner=root path=glassfish/lib
+file cbea2c93a2fba11b4b94a68a05f63eebbdf5ed93 chash=7383578cd789db66cbaa66619e8fddfa7ef90ff5 group=sys mode=0644 owner=root path=glassfish/lib/oam-integration.jar pkg.csize=20694 pkg.size=22361
+set name=publisher value=release.glassfish.oracle.com

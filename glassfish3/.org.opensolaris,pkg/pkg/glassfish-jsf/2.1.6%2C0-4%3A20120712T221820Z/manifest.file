@@ -1,0 +1,2 @@
+file 20c08d260cce8508a5d4907f33df6a6fbf4efe78 chash=10ebe68958372406ec3757ce8e0fbb67d940ac2e group=sys mode=0644 owner=root path=glassfish/modules/javax.faces.jar pkg.csize=2359219 pkg.size=2555166
+file b18de3c2daea0aa22ee455a8b310a0d484a82ae7 chash=b82c05d34ff3d0f06ba826659a2b17580fba3bae group=sys mode=0644 owner=root path=glassfish/modules/jsf-connector.jar pkg.csize=14300 pkg.size=16530

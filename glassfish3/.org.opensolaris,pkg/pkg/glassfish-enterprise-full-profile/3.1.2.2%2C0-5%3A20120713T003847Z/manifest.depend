@@ -1,0 +1,14 @@
+depend fmri=pkg:/glassfish-full-profile type=require
+depend fmri=pkg:/glassfish-branding-gui type=require
+depend fmri=pkg:/glassfish-lbplugin-gui type=require
+depend fmri=pkg:/glassfish-performance-tuner type=require
+depend fmri=pkg:/glassfish-monitoring-scripting-client type=require
+depend fmri=pkg:/glassfish-mysql-jdbc-drivers type=require
+depend fmri=pkg:/glassfish-toplink-grid type=require
+depend fmri=pkg:/glassfish-coherence-web type=require
+depend fmri=pkg:/oracle-glassfish-full-incorporation type=require
+depend fmri=pkg:/glassfish-branding type=require
+depend fmri=pkg:/mq-branding type=require
+depend fmri=pkg:/glassfish-das-recovery type=require
+depend fmri=pkg:/glassfish-oam type=require
+depend fmri=pkg:/glassfish-oracle-jdbc-drivers type=require

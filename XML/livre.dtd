@@ -1,0 +1,17 @@
+<!ELEMENT livre (auteurs,(section)+)>
+<!ENTITY % titre "titre CDATA #REQUIRED">
+<!ATTLIST livre	%titre;>
+<!ELEMENT auteurs (auteur)+>
+<!ELEMENT auteur EMPTY>
+<!ATTLIST auteur
+	nom CDATA #REQUIRED
+	prenom CDATA #REQUIRED>
+<!ELEMENT section (chapitre)+>
+<!ATTLIST section %titre;>
+<!ELEMENT chapitre (parag)+>
+<!ATTLIST chapitre %titre;>
+<!ELEMENT parag (#PCDATA)>
+
+
+
+<!ELEMENT TRUC ((A,B?,C?)|(A?,B,C?)|(A?,B?,C))>

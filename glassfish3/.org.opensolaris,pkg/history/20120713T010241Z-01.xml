@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="ascii"?>
+<history><client name="pkg" version="1.122.2-52.2817"><args><arg><![CDATA[/BUILD_AREA/v3-tools/2.3-b52-toolkit/pkg-toolkit-sunos-sparc/pkg/bin/client.py]]></arg><arg><![CDATA[install]]></arg><arg><![CDATA[glassfish-oracle-jdbc-drivers]]></arg></args></client><operation end_time="20120713T010241Z" name="refresh-publishers" result="Succeeded" start_time="20120713T010241Z" userid="10" username="java_re"/></history>

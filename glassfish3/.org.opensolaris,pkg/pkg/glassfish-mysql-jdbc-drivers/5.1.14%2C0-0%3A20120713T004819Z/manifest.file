@@ -1,0 +1,7 @@
+file bb65259d3451bd53e43e32a8c2d9f5d6e09e90ba chash=c532d031a7f7a42c30832120f857f82d8d7cd404 group=sys mode=0644 owner=root path=mysql-connector-java-commercial/mysql-connector-java-commercial-5.1.14-bin.jar pkg.csize=744142 pkg.size=775703
+file d0979d1bfaee99ed098493b05919663a7c26f7bc chash=4263918d2a1a65470b6dc06e0a6592f1b19e4144 group=sys mode=0644 owner=root path=mysql-connector-java-commercial/CHANGES pkg.csize=64819 pkg.size=197615
+file 2619658eb562f3d3ca923372d2afc187850ac31d chash=84475c8c31b6d63a3b5d7da8847546b403de1d24 group=sys mode=0644 owner=root path=mysql-connector-java-commercial/README.txt pkg.csize=16593 pkg.size=65259
+file b948ad5934af36004301592ac670e2c1a9b3b0fa chash=be5dca070fc479f54e70394e55fffb709603d76a group=sys mode=0644 owner=root path=mysql-connector-java-commercial/README pkg.csize=14824 pkg.size=62931
+file d977b4d5c5ab21b55eadfa77cf1026876473fb15 chash=36058ad3d154f5e4e6b72a9829c9999aa1775033 group=sys mode=0644 owner=root path=mysql-connector-java-commercial/docs/connector-j.html pkg.csize=164957 pkg.size=791202
+file 2d8bab4d431cf265919caa1ef2b6c6bde8d11a81 chash=919712c41d45390c0e00e29d1084b26a7261f167 group=sys mode=0644 owner=root path=mysql-connector-java-commercial/docs/connector-j.pdf pkg.csize=421481 pkg.size=796600
+file d6a13fdaacf168757228d722fdbcb8118197cb67 chash=ffca1c2422a7bdb65056aba7db1af2e7fdcd05a4 group=sys mode=0644 owner=root path=mysql-connector-java-commercial/docs/README.txt pkg.csize=126227 pkg.size=461206
